@@ -1,0 +1,14 @@
+name: odd-pi
+channels:
+  - defaults
+  - conda-forge
+  - fastai
+dependencies:
+  - python=3.8
+  - opencv
+  - numpy
+  - jupyter
+  - polars
+  - matplotlib
+  - paramiko
+  - nbdev
