@@ -4,6 +4,8 @@ import polars as pl
 import paramiko
 import time
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
 
 # FILE = Path(__file__)
 # FILE = Path('./main.py').absolute()
