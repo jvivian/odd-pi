@@ -11,8 +11,8 @@ dependencies:
   - polars
   - matplotlib
   - paramiko
-  - nbdev
   - pip
   - pip:
     - cvu-python
+    - nbdev
 
