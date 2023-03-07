@@ -11,15 +11,3 @@ documentation.
 ``` sh
 pip install odd_pi
 ```
-
-## How to use
-
-Fill me in please! Don’t forget code examples:
-
-``` python
-1+1
-```
-
-    2
-
-Here is some test text
