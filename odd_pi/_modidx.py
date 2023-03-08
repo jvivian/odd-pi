@@ -5,7 +5,6 @@ d = { 'settings': { 'branch': 'master',
                 'doc_host': 'https://jvivian.github.io',
                 'git_url': 'https://github.com/jvivian/odd-pi',
                 'lib_path': 'odd_pi'},
-<<<<<<< HEAD
   'syms': { 'odd_pi.core': { 'odd_pi.core._connect': ('core.html#_connect', 'odd_pi/core.py'),
                              'odd_pi.core._fetch': ('core.html#_fetch', 'odd_pi/core.py'),
                              'odd_pi.core.capture_and_fetch': ('core.html#capture_and_fetch', 'odd_pi/core.py'),
@@ -16,6 +15,3 @@ d = { 'settings': { 'branch': 'master',
                              'odd_pi.core.pltimg': ('core.html#pltimg', 'odd_pi/core.py'),
                              'odd_pi.core.predict': ('core.html#predict', 'odd_pi/core.py'),
                              'odd_pi.core.take_picture': ('core.html#take_picture', 'odd_pi/core.py')}}}
-=======
-  'syms': {'odd_pi.core': {'odd_pi.core.foo': ('core.html#foo', 'odd_pi/core.py')}}}
->>>>>>> 26363b97ff864b8a75c4c19667f38b94fb06dd5b
