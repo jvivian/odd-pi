@@ -19,3 +19,4 @@ dependencies:
     - nbdev
     - python-dotenv
     - opencv-python==4.5.5.64
+    - onnxruntime

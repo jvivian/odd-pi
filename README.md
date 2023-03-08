@@ -22,5 +22,7 @@ pip install odd_pi
   - Set required env variables in `.env` file
   - `python scripts/launch_discord_bot.py`
 
-Type `pi!` in any channel to get a picture taken, objects classified
-with YOLOv5, and uploaded to the same channel
+Type `pi!` in any channel to get a picture taken and `oddpi!` to have
+that picture classified by YOLOv5 and uploaded to the same channel
+
+![](./example-odd-pi.PNG)

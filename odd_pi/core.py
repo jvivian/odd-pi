@@ -50,7 +50,7 @@ def capture_and_fetch(
         time.sleep(delay)
 
     ssh_client.exec_command(cmd)
-    time.sleep(0.5)
+    time.sleep(1)
 
     _fetch(ssh_client, "/home/pi/Desktop/capture.jpg", local_path)
 
@@ -120,10 +120,27 @@ def run_bot():
         elif message.content.lower() == "pi!":
             await take_picture(message)
 
+        elif message.content.lower() == 'oddpi!':
+            await take_and_model_picture(message)
+
     async def take_picture(message):
         """Takes picture and uploads it to channel"""
         capture_and_fetch(username="pi", local_path="./img.jpg")
         with open("./img.jpg", "rb") as f:
+            picture = discord.File(f)
+            print(f'Sent picture to {message.channel.name} at {message.created_at} triggered by {message.author}')
+            await message.channel.send(file=picture)
+    
+    async def take_and_model_picture(message):
+        """Takes picture, runs YOLOv5, and uploads it to channel"""
+        capture_and_fetch(username='pi', local_path='./img.jpg')
+        model = get_default_model()
+        preds, img = predict(model, './img.jpg')
+        print(preds)
+        await send_file(message, './img_yolo.png')
+    
+    async def send_file(message, file_path):
+        with open(file_path, "rb") as f:
             picture = discord.File(f)
             print(f'Sent picture to {message.channel.name} at {message.created_at} triggered by {message.author}')
             await message.channel.send(file=picture)
