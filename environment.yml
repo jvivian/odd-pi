@@ -11,6 +11,7 @@ dependencies:
   - matplotlib
   - paramiko
   - discord.py
+  - rich
   - pip
   - pip:
     - cvu-python
@@ -18,4 +19,3 @@ dependencies:
     - nbdev
     - python-dotenv
     - opencv-python==4.5.5.64
-
