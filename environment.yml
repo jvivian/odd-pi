@@ -4,15 +4,18 @@ channels:
   - conda-forge
   - fastai
 dependencies:
-  - python=3.8
-  - opencv
+  - python=3.10
   - numpy
   - jupyter
   - polars
   - matplotlib
   - paramiko
-  - nbdev
+  - discord.py
   - pip
   - pip:
     - cvu-python
+    - nest_asyncio
+    - nbdev
+    - python-dotenv
+    - opencv-python==4.5.5.64
 
