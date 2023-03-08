@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 from dotenv import load_dotenv
+from rich import print
 
 DATA_DIR = Path(FILE_PATH).parent.parent / "data"
 NAME_PATH = (DATA_DIR.parent / "models") / "yolo.names"
@@ -34,7 +35,6 @@ def pltimg(img: cv2.Mat) -> plt.Figure:
 
 
 def capture_and_fetch(
-    hostname: str,
     username: str = "pi",
     local_path: str = "./data/capture.jpg",
     delay: int = None,
@@ -42,6 +42,7 @@ def capture_and_fetch(
 ):
     """Requires `PI_PASSWORD be set in .env file. Delay is the number of milliseconds before taking picture"""
     load_dotenv()
+    hostname = os.environ['PI_HOSTNAME']
     password = os.environ["PI_PASSWORD"]
     ssh_client = _connect(hostname, username, password)
 
@@ -97,13 +98,13 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
+    """Indicates bot is ready"""
     print(f"{client.user} has connected to Discord. Hello!")
-    # for guild in client.guilds:
-    #         print(f'{client.user} is connected to {guild.name}\tID: {guild.id}')
 
 
 @client.event
 async def on_member_join(member):
+    """Responds to members joining"""
     await member.create_dm()
     await member.dm_channel.send(
         f"Hello {member.name}, welcome to Islander Walk Securitron 9000"
@@ -112,18 +113,26 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
+    """Responds to messages from users"""
     if message.author == client.user:
         return
 
-    b99 = ["Bingpot", "Cool. Cool Cool Cool Cool", "no doubt no doubt no doubt"]
     if message.content == "99!":
+        b99 = ["Cool. Cool Cool Cool Cool", "no doubt no doubt no doubt"]
         response = random.choice(b99)
         await message.channel.send(response)
 
+    elif message.content == "pi!":
+        await take_picture(message)
 
-def take_picture(message):
-    capture_and_fetch()
+
+async def take_picture(message):
+    """Takes picture and uploads it to channel"""
+    capture_and_fetch(username="pi", local_path="./img.jpg")
+    with open("./img.jpg", "rb") as f:
+        picture = discord.File(f)
+        await message.channel.send(file=picture)
 
 
-# client.run(TOKEN)
+client.run(TOKEN)
 
