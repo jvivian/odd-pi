@@ -18,7 +18,7 @@ pip install odd_pi
 
 - Setup Raspberry Pi with Camera and allow SSH
 - On a different machine:
-  - `git clone https://github.com/jvivian/odd-pi && cd odd-pi`
+  - `git clone https://github.com/jvivian/odd-pi && cd odd-pi && pip install ./`
   - Set required env variables in `.env` file
   - `python scripts/launch_discord_bot.py`
 
