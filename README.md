@@ -8,3 +8,14 @@ odd-pi
 ``` sh
 pip install odd_pi
 ```
+
+## Quickstart
+
+- Setup Raspberry Pi with Camera and allow SSH
+- On a different machine:
+  - `git clone https://github.com/jvivian/odd-pi && cd odd-pi`
+  - Set required env variables in `.env` file
+  - `python scripts/launch_discord_bot.py`
+
+Type `pi!` in any channel to get a picture taken, classified, and
+uploaded to the same channel
