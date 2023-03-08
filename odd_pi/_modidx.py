@@ -9,9 +9,6 @@ d = { 'settings': { 'branch': 'master',
                              'odd_pi.core._fetch': ('core.html#_fetch', 'odd_pi/core.py'),
                              'odd_pi.core.capture_and_fetch': ('core.html#capture_and_fetch', 'odd_pi/core.py'),
                              'odd_pi.core.get_default_model': ('core.html#get_default_model', 'odd_pi/core.py'),
-                             'odd_pi.core.on_member_join': ('core.html#on_member_join', 'odd_pi/core.py'),
-                             'odd_pi.core.on_message': ('core.html#on_message', 'odd_pi/core.py'),
-                             'odd_pi.core.on_ready': ('core.html#on_ready', 'odd_pi/core.py'),
                              'odd_pi.core.pltimg': ('core.html#pltimg', 'odd_pi/core.py'),
                              'odd_pi.core.predict': ('core.html#predict', 'odd_pi/core.py'),
-                             'odd_pi.core.take_picture': ('core.html#take_picture', 'odd_pi/core.py')}}}
+                             'odd_pi.core.run_bot': ('core.html#run_bot', 'odd_pi/core.py')}}}
