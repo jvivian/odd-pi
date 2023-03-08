@@ -117,7 +117,7 @@ def run_bot():
             response = random.choice(b99)
             await message.channel.send(response)
 
-        elif message.content == "pi!":
+        elif message.content.lower() == "pi!":
             await take_picture(message)
 
     async def take_picture(message):
