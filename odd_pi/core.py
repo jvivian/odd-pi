@@ -70,10 +70,11 @@ def _fetch(client: paramiko.SSHClient, remote_path: str, local_path: str):
 
 
 
-# %% ../00_core.ipynb 10
+# %% ../00_core.ipynb 9
 from cvu.detector.yolov5 import Yolov5 as Yolov5Onnx
 
-def predict(model, image_path):
+def predict(model: Yolov5Onnx, image_path: str):
+    """Runs model on input image and returns predictions and output image"""
     img = cv2.imread(image_path)
     preds = model(img)
     fig = pltimg(preds.draw(img))
@@ -81,10 +82,11 @@ def predict(model, image_path):
     return preds, img
 
 
-def get_default_model():
+def get_default_model() -> Yolov5Onnx:
+    """Retrieves default YOLOv5 model"""
     return Yolov5Onnx(classes="coco", backend="onnx", weight="yolov5s", device="cpu")
 
-# %% ../00_core.ipynb 15
+# %% ../00_core.ipynb 13
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
