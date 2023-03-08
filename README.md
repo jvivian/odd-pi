@@ -8,5 +8,8 @@ odd-pi
 ``` sh
 pip install odd_pi
 ```
+<<<<<<< HEAD
 
 ## How to use
+=======
+>>>>>>> 26363b97ff864b8a75c4c19667f38b94fb06dd5b
