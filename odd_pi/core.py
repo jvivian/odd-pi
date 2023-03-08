@@ -134,5 +134,5 @@ async def take_picture(message):
         await message.channel.send(file=picture)
 
 
-client.run(TOKEN)
+# client.run(TOKEN)
 
