@@ -35,10 +35,10 @@ def pltimg(img: cv2.Mat) -> plt.Figure:
 
 
 def capture_and_fetch(
-    username: str = "pi",
-    local_path: str = "./data/capture.jpg",
-    delay: int = None,
-    cmd=CMD,
+    username: str = "pi", # Username for Raspberry Pi
+    local_path: str = "./data/capture.jpg", # Path to save image
+    delay: int = None, # Delay between command and picture is taken
+    cmd=CMD, # Raspberry pi camera command
 ):
     """Requires `PI_PASSWORD be set in .env file. Delay is the number of milliseconds before taking picture"""
     load_dotenv()
