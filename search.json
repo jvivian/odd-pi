@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "Required environment variables in .env file\n\nPI_HOSTNAME\n\nHostname (IP) to use for raspberry pi server\n\nPI_PASSWORD\n\nto use capture_and_fetch on pi server\n\nDISCORD_ID\n\nThis is the Discord client ID token\n\nDISCORD_TOKEN\n\nDiscord bot token"
+  },
+  {
+    "objectID": "core.html#camera-and-network",
+    "href": "core.html#camera-and-network",
+    "title": "core",
+    "section": "Camera and Network",
+    "text": "Camera and Network\n\nHandles connection to Pi, taking pictures, and saving image locally\n\n\nsource\n\ncapture_and_fetch\n\n capture_and_fetch (username:str='pi',\n                    local_path:str='./data/capture.jpg', delay:int=None,\n                    cmd='raspistill -t 0 -h 640 -w 640 -o\n                    ~/Desktop/capture.jpg')\n\nRequires `PI_PASSWORD be set in .env file. Delay is the number of milliseconds before taking picture\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nusername\nstr\npi\nUsername for Raspberry Pi\n\n\nlocal_path\nstr\n./data/capture.jpg\nPath to save image\n\n\ndelay\nint\nNone\nDelay between command and picture is taken\n\n\ncmd\nstr\nraspistill -t 0 -h 640 -w 640 -o ~/Desktop/capture.jpg\nRaspberry pi camera command\n\n\n\n\nsource\n\n\npltimg\n\n pltimg (img:cv2.Mat)\n\nPlots picture"
+  },
+  {
+    "objectID": "core.html#model-and-prediction",
+    "href": "core.html#model-and-prediction",
+    "title": "core",
+    "section": "Model and Prediction",
+    "text": "Model and Prediction\n\nFetch YOLOv5 model and predict on image\n\n\nsource\n\nget_default_model\n\n get_default_model ()\n\nRetrieves default YOLOv5 model\n\nsource\n\n\npredict\n\n predict (model:cvu.detector.yolov5.core.Yolov5, image_path:str)\n\nRuns model on input image and returns predictions and output image\nExample use\nmodel = get_default_model()\npreds, img = predict(model, '/path/to/img')"
+  },
+  {
+    "objectID": "core.html#discord-bot",
+    "href": "core.html#discord-bot",
+    "title": "core",
+    "section": "Discord Bot",
+    "text": "Discord Bot\n\nManage interactions to camera via Discord Bot\n\n\nsource\n\nrun_bot\n\n run_bot ()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "odd-pi",
+    "section": "",
+    "text": "Object Detection over Discord using the Raspberry PI\nSee Documentation for more details"
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "odd-pi",
+    "section": "Install",
+    "text": "Install\npip install odd_pi"
+  },
+  {
+    "objectID": "index.html#quickstart",
+    "href": "index.html#quickstart",
+    "title": "odd-pi",
+    "section": "Quickstart",
+    "text": "Quickstart\n\nSetup Raspberry Pi with Camera and allow SSH\nOn a different machine:\n\ngit clone https://github.com/jvivian/odd-pi && cd odd-pi && pip install ./\nSet required env variables in .env file\npython scripts/launch_discord_bot.py\n\n\nType pi! in any channel to get a picture taken and oddpi! to have that picture classified by YOLOv5 and uploaded to the same channel"
+  }
+]
