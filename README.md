@@ -7,6 +7,17 @@ odd-pi
 
 See [Documentation](https://jvivian.github.io/odd-pi) for more details
 
+<div>
+
+<p>
+
+<img src="index_files/figure-commonmark/mermaid-figure-1.png"
+style="width:4.12in;height:6.86in" />
+
+</p>
+
+</div>
+
 ## Install
 
 ``` sh
