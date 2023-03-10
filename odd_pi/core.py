@@ -24,6 +24,8 @@ import numpy as np
 import os
 from dotenv import load_dotenv
 from rich import print
+from cvu.detector.yolov5 import Yolov5 as Yolov5Onnx
+from cvu.detector.prediction import Prediction
 
 DATA_DIR = Path(FILE_PATH).parent.parent / "data"
 NAME_PATH = (DATA_DIR.parent / "models") / "yolo.names"
@@ -75,10 +77,6 @@ def _fetch(client: paramiko.SSHClient, remote_path: str, local_path: str):
 
 
 # %% ../nbs/00_core.ipynb 10
-from cvu.detector.yolov5 import Yolov5 as Yolov5Onnx
-from cvu.detector.prediction import Prediction
-
-
 def predict(model: Yolov5Onnx, image_path: str) -> tuple[pl.DataFrame, np.ndarray]:
     """Runs model on input image and returns predictions and output image"""
     img = cv2.imread(image_path)
