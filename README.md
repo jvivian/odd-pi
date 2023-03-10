@@ -29,4 +29,11 @@ style="width:4.12in;height:6.86in" />
 Type `pi!` in any channel to get a picture taken and `oddpi!` to have
 that picture classified by YOLOv5 and uploaded to the same channel
 
-![](./example-odd-pi.PNG)
+## Roadmap
+
+- [ ] Add CLI to launch script
+  - camera commands, etc,
+- [ ] Add critical CCC: Cat Camera Coroutine
+  - [ ] Make extensible to any class $C$ object, time duration, etc
+
+![](imgs/example-odd-pi.PNG)
