@@ -26,6 +26,7 @@ from dotenv import load_dotenv
 from rich import print
 from cvu.detector.yolov5 import Yolov5 as Yolov5Onnx
 from cvu.detector.prediction import Prediction
+import asyncio
 
 DATA_DIR = Path(FILE_PATH).parent.parent / "data"
 NAME_PATH = (DATA_DIR.parent / "models") / "yolo.names"
@@ -33,6 +34,7 @@ TEST_PATH = DATA_DIR / "test.jpg"
 CMD = "raspistill -t 0 -h 640 -w 640 -o ~/Desktop/capture.jpg"
 
 
+# %% ../nbs/00_core.ipynb 9
 def pltimg(img: cv2.Mat) -> plt.Figure:
     """Plots picture"""
     return plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
@@ -76,7 +78,7 @@ def _fetch(client: paramiko.SSHClient, remote_path: str, local_path: str):
     ftp_client.close()
 
 
-# %% ../nbs/00_core.ipynb 10
+# %% ../nbs/00_core.ipynb 11
 def predict(model: Yolov5Onnx, image_path: str) -> tuple[pl.DataFrame, np.ndarray]:
     """Runs model on input image and returns predictions and output image"""
     img = cv2.imread(image_path)
@@ -98,12 +100,14 @@ def df_from_preds(preds: Prediction) -> pl.DataFrame:
         row = row.split("\t")
         row = [x.split("=")[1].strip(";") for x in row if "=" in x]
         rows.append(row)
+    if not rows:
+        return None
     df = pl.DataFrame(rows).transpose()
     df.columns = ["class", "confidence", "tl", "br"]
     return df.select(["class", pl.col("confidence").cast(pl.Float32)])
 
 
-# %% ../nbs/00_core.ipynb 14
+# %% ../nbs/00_core.ipynb 15
 def run_bot():
     intents = discord.Intents.default()
     intents.message_content = True
@@ -113,6 +117,12 @@ def run_bot():
     async def on_ready():
         """Indicates bot is ready"""
         print(f"{client.user} has connected to Discord. Hello!")
+
+        # Cat Cam Coroutine
+        channel = discord.utils.get(client.get_all_channels(), name="general")
+        while True:
+            await asyncio.sleep(60)
+            await post_if_cat(channel)
 
     @client.event
     async def on_member_join(member):
@@ -141,29 +151,35 @@ def run_bot():
 
     async def take_picture(message):
         """Takes picture and uploads it to channel"""
+        msg = f"Sent picture to {message.channel.name} @ {message.created_at} triggered by {message.author}"
         capture_and_fetch(username="pi", local_path="./img.jpg")
         with open("./img.jpg", "rb") as f:
             picture = discord.File(f)
-            print(
-                f"Sent picture to {message.channel.name} at {message.created_at} triggered by {message.author}"
-            )
+            print(msg)
             await message.channel.send(file=picture)
 
     async def take_and_model_picture(message):
         """Takes picture, runs YOLOv5, and uploads it to channel"""
         capture_and_fetch(username="pi", local_path="./img.jpg")
         model = get_default_model()
-        preds, img = predict(model, "./img.jpg")
+        preds, _ = predict(model, "./img.jpg")
         print(preds)
         await send_file(message, "./img_yolo.png")
 
     async def send_file(message, file_path):
         with open(file_path, "rb") as f:
             picture = discord.File(f)
-            print(
-                f"Sent picture to {message.channel.name} at {message.created_at} triggered by {message.author}"
-            )
             await message.channel.send(file=picture)
+
+    async def post_if_cat(channel: discord.TextChannel):
+        capture_and_fetch(username="pi", local_path="./cat.jpg")
+        model = get_default_model()
+        preds, _ = predict(model, "./cat.jpg")
+        print(preds)
+        if "cat" in preds.select("class").to_list():
+            with open("./cat_yolo.png", "rb") as f:
+                picture = discord.File()
+                await channel.send(file=picture)
 
     load_dotenv()
     token = os.getenv("DISCORD_TOKEN")

@@ -36,4 +36,4 @@ that picture classified by YOLOv5 and uploaded to the same channel
 - [ ] Add critical CCC: Cat Camera Coroutine
   - [ ] Make extensible to any class $C$ object, time duration, etc
 
-![](imgs/example-odd-pi.PNG)
+![](./example-odd-pi.PNG)
