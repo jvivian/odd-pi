@@ -18,12 +18,6 @@ style="width:4.12in;height:6.86in" />
 
 </div>
 
-## Install
-
-``` sh
-pip install odd_pi
-```
-
 ## Quickstart
 
 - Setup Raspberry Pi with Camera and allow SSH
