@@ -1,9 +1,0 @@
-project:
-  output-dir: _docs
-
-website:
-  title: "odd-pi"
-  site-url: "https://jvivian.github.io/odd-pi"
-  description: "Library for managing Object Detection and Devices between home assistant and raspberry PI"
-  repo-branch: master
-  repo-url: "https://github.com/jvivian/odd-pi"
