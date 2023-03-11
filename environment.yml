@@ -12,6 +12,7 @@ dependencies:
   - paramiko
   - discord.py
   - rich
+  - typer-cli
   - pip
   - pip:
     - cvu-python
@@ -20,3 +21,4 @@ dependencies:
     - python-dotenv
     - opencv-python==4.5.5.64
     - onnxruntime
+    - cryptography==36.0.2

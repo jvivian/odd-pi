@@ -32,7 +32,7 @@
     "href": "core.html#discord-bot",
     "title": "core",
     "section": "Discord Bot",
-    "text": "Discord Bot\n\nManage interactions to camera via Discord Bot\n\n\n\nrun_bot\n\n run_bot ()"
+    "text": "Discord Bot\n\nManage interactions to camera via Discord Bot\n\nType python scripts/launch_discord_bot.py --help in root directory for more information\n\n\nrun_bot\n\n run_bot (run_active_cam:bool=True, cam_interval:int=30,\n          cam_class:str='cat', cam_channel:str='general',\n          pic_keyword:str='pi!', yolo_keyword:str='yolo!',\n          pic_dir:str='./pics')\n\nRun Discord bot that communicates with the Raspberry Pi camera\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nrun_active_cam\nbool\nTrue\nRuns camera at interval looking for a class to identify\n\n\ncam_interval\nint\n30\nNumber of seconds to camera checks for target class\n\n\ncam_class\nstr\ncat\nObject to identify. Run list_classes to see all options\n\n\ncam_channel\nstr\ngeneral\nDisord channel to post active cam pictures to\n\n\npic_keyword\nstr\npi!\nCommand a user types in a Discord channel to take a picture\n\n\nyolo_keyword\nstr\nyolo!\nSame as above but with the YOLO predictions overlayed\n\n\npic_dir\nstr\n./pics\nIntermediate directory for pictures"
   },
   {
     "objectID": "index.html",
@@ -53,6 +53,6 @@
     "href": "index.html#roadmap",
     "title": "odd-pi",
     "section": "Roadmap",
-    "text": "Roadmap\n\nAdd CLI to launch script\ncamera commands, etc,\n\nAdd critical CCC: Cat Camera Coroutine\nMake extensible to any class \\(C\\) object, time duration, etc"
+    "text": "Roadmap\n\nAdd CLI to launch script\ncamera commands, etc,\n\nAdd critical CCC: Cat Camera Coroutine\nMake extensible to any class \\(C\\) object, time duration, etc\n\nAvoid camera conflicts by making file names unique (or just deleting)"
   }
 ]

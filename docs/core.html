@@ -346,12 +346,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>Manage interactions to camera via Discord Bot</p>
 </blockquote>
+<p>Type <code>python scripts/launch_discord_bot.py --help</code> in root directory for more information</p>
 <hr>
 <section id="run_bot" class="level3">
 <h3 class="anchored" data-anchor-id="run_bot">run_bot</h3>
 <blockquote class="blockquote">
-<pre><code> run_bot ()</code></pre>
+<pre><code> run_bot (run_active_cam:bool=True, cam_interval:int=30,
+          cam_class:str='cat', cam_channel:str='general',
+          pic_keyword:str='pi!', yolo_keyword:str='yolo!',
+          pic_dir:str='./pics')</code></pre>
 </blockquote>
+<p>Run Discord bot that communicates with the Raspberry Pi camera</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>run_active_cam</td>
+<td>bool</td>
+<td>True</td>
+<td>Runs camera at interval looking for a class to identify</td>
+</tr>
+<tr class="even">
+<td>cam_interval</td>
+<td>int</td>
+<td>30</td>
+<td>Number of seconds to camera checks for target class</td>
+</tr>
+<tr class="odd">
+<td>cam_class</td>
+<td>str</td>
+<td>cat</td>
+<td>Object to identify. Run <code>list_classes</code> to see all options</td>
+</tr>
+<tr class="even">
+<td>cam_channel</td>
+<td>str</td>
+<td>general</td>
+<td>Disord channel to post active cam pictures to</td>
+</tr>
+<tr class="odd">
+<td>pic_keyword</td>
+<td>str</td>
+<td>pi!</td>
+<td>Command a user types in a Discord channel to take a picture</td>
+</tr>
+<tr class="even">
+<td>yolo_keyword</td>
+<td>str</td>
+<td>yolo!</td>
+<td>Same as above but with the YOLO predictions overlayed</td>
+</tr>
+<tr class="odd">
+<td>pic_dir</td>
+<td>str</td>
+<td>./pics</td>
+<td>Intermediate directory for pictures</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

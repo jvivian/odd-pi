@@ -35,5 +35,7 @@ that picture classified by YOLOv5 and uploaded to the same channel
   - camera commands, etc,
 - [ ] Add critical CCC: Cat Camera Coroutine
   - [ ] Make extensible to any class $C$ object, time duration, etc
+- [ ] Avoid camera conflicts by making file names unique (or just
+  deleting)
 
 ![](./example-odd-pi.PNG)
