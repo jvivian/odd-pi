@@ -46,13 +46,13 @@
     "href": "index.html#quickstart",
     "title": "odd-pi",
     "section": "Quickstart",
-    "text": "Quickstart\n\nSetup Raspberry Pi with Camera and allow SSH\nOn a different machine:\n\ngit clone https://github.com/jvivian/odd-pi && cd odd-pi && pip install ./\nSet required env variables in .env file\npython scripts/launch_discord_bot.py\n\n\nType pi! in any channel to get a picture taken and oddpi! to have that picture classified by YOLOv5 and uploaded to the same channel"
+    "text": "Quickstart\n\nSetup Raspberry Pi with Camera and allow SSH\nOn a different machine:\n\ngit clone https://github.com/jvivian/odd-pi && cd odd-pi && pip install ./\nSet required env variables in .env file\npython scripts/launch_discord_bot.py run_discord_bot --help\n\nRun an active camera at given interval which looks for a specified object and posts it to Discord\nType pi! (or given keyword) in any channel to get a picture taken\nType yolo! (or keyword) to have a picture with predictions overlayed"
   },
   {
     "objectID": "index.html#roadmap",
     "href": "index.html#roadmap",
     "title": "odd-pi",
     "section": "Roadmap",
-    "text": "Roadmap\n\nAdd CLI to launch script\ncamera commands, etc,\n\nAdd critical CCC: Cat Camera Coroutine\nMake extensible to any class \\(C\\) object, time duration, etc\n\nAvoid camera conflicts by making file names unique (or just deleting)"
+    "text": "Roadmap\n\nAdd CLI to launch script\ncamera commands, etc,\n\nAdd critical CCC: Cat Camera Coroutine\nMake extensible to any class \\(C\\) object, time duration, etc\n\nAvoid camera conflicts by making file names unique (or just deleting)\nAdd console-script on install"
   }
 ]

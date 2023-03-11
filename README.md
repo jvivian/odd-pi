@@ -24,18 +24,20 @@ style="width:4.12in;height:6.86in" />
 - On a different machine:
   - `git clone https://github.com/jvivian/odd-pi && cd odd-pi && pip install ./`
   - Set required env variables in `.env` file
-  - `python scripts/launch_discord_bot.py`
+  - `python scripts/launch_discord_bot.py run_discord_bot --help`
+- Run an active camera at given interval which looks for a specified
+  object and posts it to Discord
+- Type `pi!` (or given keyword) in any channel to get a picture taken
+- Type `yolo!` (or keyword) to have a picture with predictions overlayed
 
-Type `pi!` in any channel to get a picture taken and `oddpi!` to have
-that picture classified by YOLOv5 and uploaded to the same channel
+![](./example-odd-pi.PNG)
 
 ## Roadmap
 
-- [ ] Add CLI to launch script
+- [x] Add CLI to launch script
   - camera commands, etc,
-- [ ] Add critical CCC: Cat Camera Coroutine
-  - [ ] Make extensible to any class $C$ object, time duration, etc
+- [x] Add critical CCC: Cat Camera Coroutine
+  - [x] Make extensible to any class $C$ object, time duration, etc
 - [ ] Avoid camera conflicts by making file names unique (or just
   deleting)
-
-![](./example-odd-pi.PNG)
+- [ ] Add console-script on install

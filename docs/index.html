@@ -185,23 +185,26 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>git clone https://github.com/jvivian/odd-pi &amp;&amp; cd odd-pi &amp;&amp; pip install ./</code></li>
 <li>Set required env variables in <code>.env</code> file</li>
-<li><code>python scripts/launch_discord_bot.py</code></li>
+<li><code>python scripts/launch_discord_bot.py run_discord_bot --help</code></li>
 </ul></li>
+<li>Run an active camera at given interval which looks for a specified object and posts it to Discord</li>
+<li>Type <code>pi!</code> (or given keyword) in any channel to get a picture taken</li>
+<li>Type <code>yolo!</code> (or keyword) to have a picture with predictions overlayed</li>
 </ul>
-<p>Type <code>pi!</code> in any channel to get a picture taken and <code>oddpi!</code> to have that picture classified by YOLOv5 and uploaded to the same channel</p>
+<p><img src="./example-odd-pi.PNG" class="img-fluid"></p>
 </section>
 <section id="roadmap" class="level2">
 <h2 class="anchored" data-anchor-id="roadmap">Roadmap</h2>
 <ul class="task-list">
-<li><input type="checkbox" disabled="">Add CLI to launch script<ul>
+<li><input type="checkbox" disabled="" checked="">Add CLI to launch script<ul>
 <li>camera commands, etc,</li>
 </ul></li>
-<li><input type="checkbox" disabled="">Add critical CCC: Cat Camera Coroutine<ul class="task-list">
-<li><input type="checkbox" disabled="">Make extensible to any class <span class="math inline">\(C\)</span> object, time duration, etc</li>
+<li><input type="checkbox" disabled="" checked="">Add critical CCC: Cat Camera Coroutine<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">Make extensible to any class <span class="math inline">\(C\)</span> object, time duration, etc</li>
 </ul></li>
 <li><input type="checkbox" disabled="">Avoid camera conflicts by making file names unique (or just deleting)</li>
+<li><input type="checkbox" disabled="">Add console-script on install</li>
 </ul>
-<p><img src="./example-odd-pi.PNG" class="img-fluid"></p>
 
 
 </section>
